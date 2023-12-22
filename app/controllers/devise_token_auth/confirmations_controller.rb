@@ -12,8 +12,8 @@ module DeviseTokenAuth
         redirect_header_options = { account_confirmation_success: true }
 
         if signed_in?(resource_name)
-          token = signed_in_resource.create_token
-          signed_in_resource.save!
+          token = @resource.create_token
+          @resource.save!
 
           redirect_headers = build_redirect_headers(token.token,
                                                     token.client,
@@ -22,8 +22,7 @@ module DeviseTokenAuth
           if DeviseTokenAuth.cookie_enabled
             set_token_in_cookie(@resource, token)
           end
-          
-          redirect_to_link = signed_in_resource.build_auth_url(redirect_url, redirect_headers)
+          redirect_to_link = @resource.build_auth_url(redirect_url, redirect_headers)
         else
           redirect_to_link = DeviseTokenAuth::Url.generate(redirect_url, redirect_header_options)
         end

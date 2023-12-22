@@ -10,27 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_101113) do
-
+ActiveRecord::Schema[7.0].define(version: 2019_09_24_101113) do
   create_table "confirmable_users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.datetime "reset_password_sent_at", precision: nil
     t.boolean "allow_password_change", default: false
-    t.datetime "remember_created_at"
+    t.datetime "remember_created_at", precision: nil
     t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
+    t.datetime "confirmed_at", precision: nil
+    t.datetime "confirmation_sent_at", precision: nil
     t.string "unconfirmed_email"
     t.string "name"
     t.string "nickname"
     t.string "image"
     t.string "email"
     t.text "tokens"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["confirmation_token"], name: "index_confirmable_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_confirmable_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_confirmable_users_on_reset_password_token", unique: true
@@ -43,14 +42,14 @@ ActiveRecord::Schema.define(version: 2019_09_24_101113) do
     t.string "encrypted_password", default: "", null: false
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
-    t.datetime "locked_at"
+    t.datetime "locked_at", precision: nil
     t.string "name"
     t.string "nickname"
     t.string "image"
     t.string "email"
     t.text "tokens"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["email"], name: "index_lockable_users_on_email"
     t.index ["uid", "provider"], name: "index_lockable_users_on_uid_and_provider", unique: true
     t.index ["unlock_token"], name: "index_lockable_users_on_unlock_token", unique: true
@@ -60,13 +59,13 @@ ActiveRecord::Schema.define(version: 2019_09_24_101113) do
     t.string "email"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.datetime "reset_password_sent_at", precision: nil
     t.string "reset_password_redirect_url"
     t.boolean "allow_password_change", default: false
-    t.datetime "remember_created_at"
+    t.datetime "remember_created_at", precision: nil
     t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
+    t.datetime "confirmed_at", precision: nil
+    t.datetime "confirmation_sent_at", precision: nil
     t.string "unconfirmed_email"
     t.string "name"
     t.string "nickname"
@@ -74,8 +73,8 @@ ActiveRecord::Schema.define(version: 2019_09_24_101113) do
     t.string "provider"
     t.string "uid", default: "", null: false
     t.text "tokens"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "favorite_color"
     t.index ["confirmation_token"], name: "index_mangs_on_confirmation_token", unique: true
     t.index ["email"], name: "index_mangs_on_email"
@@ -92,8 +91,8 @@ ActiveRecord::Schema.define(version: 2019_09_24_101113) do
     t.string "image"
     t.string "email"
     t.text "tokens"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["email"], name: "index_only_email_users_on_email"
     t.index ["uid", "provider"], name: "index_only_email_users_on_uid_and_provider", unique: true
   end
@@ -103,20 +102,20 @@ ActiveRecord::Schema.define(version: 2019_09_24_101113) do
     t.string "uid", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.datetime "reset_password_sent_at", precision: nil
     t.boolean "allow_password_change", default: false
-    t.datetime "remember_created_at"
+    t.datetime "remember_created_at", precision: nil
     t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
+    t.datetime "confirmed_at", precision: nil
+    t.datetime "confirmation_sent_at", precision: nil
     t.string "unconfirmed_email"
     t.string "name"
     t.string "nickname"
     t.string "image"
     t.string "email"
     t.text "tokens"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["email"], name: "index_scoped_users_on_email"
     t.index ["reset_password_token"], name: "index_scoped_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_scoped_users_on_uid_and_provider", unique: true
@@ -127,16 +126,16 @@ ActiveRecord::Schema.define(version: 2019_09_24_101113) do
     t.string "uid", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.datetime "reset_password_sent_at", precision: nil
     t.boolean "allow_password_change", default: false
-    t.datetime "remember_created_at"
+    t.datetime "remember_created_at", precision: nil
     t.string "name"
     t.string "nickname"
     t.string "image"
     t.string "email"
     t.text "tokens"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["email"], name: "index_unconfirmable_users_on_email"
     t.index ["reset_password_token"], name: "index_unconfirmable_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_unconfirmable_users_on_uid_and_provider", unique: true
@@ -147,20 +146,20 @@ ActiveRecord::Schema.define(version: 2019_09_24_101113) do
     t.string "uid", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.datetime "reset_password_sent_at", precision: nil
     t.boolean "allow_password_change", default: false
-    t.datetime "remember_created_at"
+    t.datetime "remember_created_at", precision: nil
     t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
+    t.datetime "confirmed_at", precision: nil
+    t.datetime "confirmation_sent_at", precision: nil
     t.string "unconfirmed_email"
     t.string "name"
     t.string "nickname"
     t.string "image"
     t.string "email"
     t.text "tokens"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["email"], name: "index_unregisterable_users_on_email"
     t.index ["reset_password_token"], name: "index_unregisterable_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_unregisterable_users_on_uid_and_provider", unique: true
@@ -170,13 +169,13 @@ ActiveRecord::Schema.define(version: 2019_09_24_101113) do
     t.string "email"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.datetime "reset_password_sent_at", precision: nil
     t.string "reset_password_redirect_url"
     t.boolean "allow_password_change", default: false
-    t.datetime "remember_created_at"
+    t.datetime "remember_created_at", precision: nil
     t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
+    t.datetime "confirmed_at", precision: nil
+    t.datetime "confirmation_sent_at", precision: nil
     t.string "unconfirmed_email"
     t.string "name"
     t.string "nickname"
@@ -184,8 +183,8 @@ ActiveRecord::Schema.define(version: 2019_09_24_101113) do
     t.string "provider"
     t.string "uid", default: "", null: false
     t.text "tokens"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "operating_thetan"
     t.string "favorite_color"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
