@@ -18,7 +18,11 @@ module DeviseTokenAuth
           redirect_headers = build_redirect_headers(token.token,
                                                     token.client,
                                                     redirect_header_options)
-
+          
+          if DeviseTokenAuth.cookie_enabled
+            set_token_in_cookie(@resource, token)
+          end
+          
           redirect_to_link = signed_in_resource.build_auth_url(redirect_url, redirect_headers)
         else
           redirect_to_link = DeviseTokenAuth::Url.generate(redirect_url, redirect_header_options)

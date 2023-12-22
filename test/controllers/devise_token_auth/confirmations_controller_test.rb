@@ -41,6 +41,7 @@ class DeviseTokenAuth::ConfirmationsControllerTest < ActionController::TestCase
       describe 'success' do
         describe 'when authenticated' do
           before do
+            DeviseTokenAuth.cookie_enabled = true
             sign_in(@new_user)
             get :show,
                 params: { confirmation_token: @token,
@@ -64,6 +65,14 @@ class DeviseTokenAuth::ConfirmationsControllerTest < ActionController::TestCase
           test 'redirect url includes token params' do
             assert @token_params.all? { |param| response.body.include?(param) }
             assert response.body.include?('account_confirmation_success')
+          end
+
+          test 'auth cookie was returned in response if cookie_enabled=true' do
+            assert response.cookies[DeviseTokenAuth.cookie_name]
+          end
+
+          after do
+            DeviseTokenAuth.cookie_enabled = false
           end
         end
 
